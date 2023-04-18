@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import * as api from "../api";
 import CommentCard from "./CommentCard";
+import CommentForm from "./CommentForm";
 
-export default function CommentList({ review_id }) {
+export default function CommentList({ review_id, username }) {
   const [activeComments, setActiveComments] = useState([]);
-
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
@@ -43,6 +43,11 @@ export default function CommentList({ review_id }) {
             );
           })}
         </ul>
+        <CommentForm
+          username={username}
+          review_id={review_id}
+          setActiveComments={setActiveComments}
+        />
       </main>
     );
   }
