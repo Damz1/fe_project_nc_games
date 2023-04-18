@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import "../css/SingleReview.css";
 import CommentList from "./CommentList";
 
-export default function SingleReview() {
+export default function SingleReview({ username }) {
   const { review_id } = useParams();
   const [activeReview, setActiveReview] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -84,8 +84,7 @@ export default function SingleReview() {
       ) : (
         <p>{activeVotes} Votes</p>
       )}
-
-      <CommentList review_id={activeReview.review_id} />
+      <CommentList review_id={activeReview.review_id} username={username} />
     </main>
   );
 }
