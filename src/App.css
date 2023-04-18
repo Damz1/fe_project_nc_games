@@ -2,33 +2,87 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: content-box;
-}
-
-.review-img {
-  max-width: 30%;
+  border: 2px solid;
 }
 
 .header {
   display: flex;
   justify-content: center;
+  border: 2px solid blue;
 }
 
-ul {
-  list-style: none;
+.list {
+  display: grid;
+  grid-gap: 20px;
 }
 
-.list-container {
+.listContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  border: 2px solid green;
+  padding: 20px;
 }
 
-.review-card {
-  border: 1px solid;
+/* For screens smaller than 600px */
+@media (max-width: 599px) {
+  .list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+/* For screens between 600px and 899px */
+@media (min-width: 600px) and (max-width: 899px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* For screens larger than 900px */
+@media (min-width: 900px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* For screens larger than 1200px */
+@media (min-width: 1200px) {
+  .list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.listHeader {
+  border: 2px solid rgb(0, 255, 166);
+}
+
+.reviewImg {
+  max-width: 40%;
+  border: 2px solid;
+}
+
+ul {
+  list-style: none;
+  border: 3px double red;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid green;
+}
+
+.reviewCardContainer {
+  border: 2px dotted rgb(255, 0, 234);
+}
+
+.reviewCard {
+  border: 2px solid rgb(106, 0, 255);
 }
 
 .loading {
   content: center;
+  border: 2px solid;
 }

@@ -26,9 +26,9 @@ export default function SingleReview() {
   ) : isLoading ? (
     <p>Loading...</p>
   ) : (
-    <main className="SingleReview">
+    <main className="singleReviewContainer">
       <h2>{activeReview.title}</h2>
-      <ul className="SingleReviewList">
+      <ul className="singleReview">
         <li>Category: {activeReview.category}</li>
         <li>Created on: {activeReview.created_at}</li>
       </ul>
