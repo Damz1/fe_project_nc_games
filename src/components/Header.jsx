@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import "../css/Header.css";
 
 export default function Header() {
   return (
-    <div className="header">
+    <div className="headerContainer">
       <Link to="/">
-        <h1>NC Games</h1>
+        <h1 className="header">NC Games</h1>
       </Link>
     </div>
   );

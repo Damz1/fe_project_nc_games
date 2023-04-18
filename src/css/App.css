@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+}
