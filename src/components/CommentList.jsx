@@ -43,7 +43,11 @@ export default function CommentList({ review_id, username }) {
             );
           })}
         </ul>
-        <CommentForm username={username} />
+        <CommentForm
+          username={username}
+          review_id={review_id}
+          setActiveComments={setActiveComments}
+        />
       </main>
     );
   }

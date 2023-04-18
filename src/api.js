@@ -33,7 +33,7 @@ export const patchReviewVotes = (review_id, incrementBy) => {
 export const postComment = (review_id, commentObj) => {
   return gamesAPI
     .post(`/reviews/${review_id}/comments`, commentObj)
-    .then(({ data: { comments } }) => {
-      return comments;
+    .then(({ data }) => {
+      return data.createdComment[0];
     });
 };

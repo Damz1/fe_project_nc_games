@@ -1,10 +1,7 @@
 import { useState } from "react";
 import * as api from "../api";
-export default function CommentForm({
-  username,
-  setActiveComments,
-  review_id,
-}) {
+
+export default function CommentForm({ setActiveComments, review_id }) {
   const [userInput, setUserInput] = useState("");
   const [isError, setIsError] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -13,18 +10,20 @@ export default function CommentForm({
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsPosting(true);
+    setIsSubmitted(true);
     const commentObj = {
-      username: username,
+      username: "tickle122",
       body: userInput,
     };
     api
       .postComment(review_id, commentObj)
-      .then((comment) => {
+      .then((createdComment) => {
         setActiveComments((currentComments) => {
-          return [comment, ...currentComments];
+          return [createdComment, ...currentComments];
         });
         setUserInput("");
-        setIsSubmitted(true);
+        setIsPosting(false);
+        setIsSubmitted(false);
       })
       .catch((err) => {
         setIsError(true);
