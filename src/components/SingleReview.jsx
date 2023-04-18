@@ -32,11 +32,13 @@ export default function SingleReview() {
       <ul className="singleReview">
         <li>Category: {activeReview.category}</li>
         <li>Created on: {activeReview.created_at}</li>
+        <li>
+          <img src={activeReview.review_img_url} alt={activeReview.title} />
+        </li>
+        <li>
+          <h3>review by: {activeReview.owner}</h3>
+        </li>
       </ul>
-
-      <img src={activeReview.review_img_url} alt="img review" />
-      <h3>review by: {activeReview.owner}</h3>
-
       <p className="ReviewBody">{activeReview.review_body}</p>
     </main>
   );
