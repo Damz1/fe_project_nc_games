@@ -9,6 +9,23 @@ export default function SingleReview() {
   const [activeReview, setActiveReview] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const [activeVotes, setActiveVotes] = useState(null);
+  const [likeClicked, setLikeClicked] = useState(false);
+  const [unlikeClicked, setUnlikeClicked] = useState(false);
+  const [isErrorMessage, setErrorMessage] = useState(false);
+
+  const handleVotes = (incrementBy) => {
+    setActiveVotes((currentVotes) => {
+      return currentVotes + incrementBy;
+    });
+    incrementBy > 0 ? setLikeClicked(true) : setUnlikeClicked(true);
+    api.patchReviewVotes(review_id, incrementBy).catch(() => {
+      setErrorMessage(true);
+      setActiveVotes((currentVotes) => {
+        return currentVotes - incrementBy;
+      });
+    });
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -16,6 +33,7 @@ export default function SingleReview() {
       .getReviewById(review_id)
       .then((review) => {
         setActiveReview(review);
+        setActiveVotes(review.votes);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -41,6 +59,32 @@ export default function SingleReview() {
         </li>
       </ul>
       <p className="ReviewBody">{activeReview.review_body}</p>
+      <div className="votes">
+        <button
+          type="button"
+          onClick={() => {
+            handleVotes(1);
+          }}
+          disabled={likeClicked}
+        >
+          Like
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            handleVotes(-1);
+          }}
+          disabled={unlikeClicked}
+        >
+          Unlike
+        </button>
+      </div>
+      {isErrorMessage ? (
+        <p>Could not update votes counts, please try again later</p>
+      ) : (
+        <p>{activeVotes} Votes</p>
+      )}
+
       <CommentList review_id={activeReview.review_id} />
     </main>
   );

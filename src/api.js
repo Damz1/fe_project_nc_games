@@ -25,3 +25,7 @@ export const getCommentsById = (review_id) => {
       return comments;
     });
 };
+
+export const patchReviewVotes = (review_id, incrementBy) => {
+  return gamesAPI.patch(`/reviews/${review_id}`, { inc_votes: incrementBy });
+};
