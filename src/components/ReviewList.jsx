@@ -1,6 +1,7 @@
 import * as api from "../api";
 import ReviewCard from "./ReviewCard";
 import { useState, useEffect } from "react";
+import "../css/ReviewList.css";
 
 export default function ReviewList() {
   const [reviewList, setReviewList] = useState([]);

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import * as api from "../api";
 import { useEffect, useState } from "react";
+import "../css/SingleReview.css";
 
 export default function SingleReview() {
   const { review_id } = useParams();
