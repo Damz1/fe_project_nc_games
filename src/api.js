@@ -3,9 +3,11 @@ import axios from "axios";
 const gamesAPI = axios.create({
   baseURL: "https://nc-games-pro.onrender.com/api",
 });
-export const getReviews = (category) => {
+export const getReviews = (category, order, sort_by) => {
   return gamesAPI
-    .get("/reviews", { params: { category: category } })
+    .get("/reviews", {
+      params: { category: category, sort_by: sort_by, order: order },
+    })
     .then(({ data }) => {
       return data.reviews;
     });
