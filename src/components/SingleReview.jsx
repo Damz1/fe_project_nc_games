@@ -11,14 +11,29 @@ export default function SingleReview({ username }) {
   const [isError, setIsError] = useState(false);
   const [activeVotes, setActiveVotes] = useState(null);
   const [likeClicked, setLikeClicked] = useState(false);
-  const [unlikeClicked, setUnlikeClicked] = useState(false);
+  const [dislikeClicked, setDislikeClicked] = useState(false);
   const [isErrorMessage, setErrorMessage] = useState(false);
 
   const handleVotes = (incrementBy) => {
+    if (incrementBy === 1 && likeClicked) {
+      return;
+    }
+    if (incrementBy === -1 && dislikeClicked) {
+      return;
+    }
+
     setActiveVotes((currentVotes) => {
       return currentVotes + incrementBy;
     });
-    incrementBy > 0 ? setLikeClicked(true) : setUnlikeClicked(true);
+
+    if (incrementBy === 1) {
+      setLikeClicked(true);
+      setDislikeClicked(false);
+    } else {
+      setDislikeClicked(true);
+      setLikeClicked(false);
+    }
+
     api.patchReviewVotes(review_id, incrementBy).catch(() => {
       setErrorMessage(true);
       setActiveVotes((currentVotes) => {
@@ -65,7 +80,6 @@ export default function SingleReview({ username }) {
           onClick={() => {
             handleVotes(1);
           }}
-          disabled={likeClicked}
         >
           Like
         </button>
@@ -74,9 +88,8 @@ export default function SingleReview({ username }) {
           onClick={() => {
             handleVotes(-1);
           }}
-          disabled={unlikeClicked}
         >
-          Unlike
+          Dislike
         </button>
       </div>
       {isErrorMessage ? (
