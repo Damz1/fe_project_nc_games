@@ -2,36 +2,78 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2rem;
-}
-
-.singleReview {
-  list-style: none;
-  padding: 0;
-}
-
-.singleReview li {
-  margin: 0.5rem 0;
-  font-size: 1.2rem;
-}
-
-.singleReview img {
-  width: 100%;
-  max-height: 600px;
-  object-fit: contain;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .ReviewBody {
-  border: 1px solid;
-  max-width: 50%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.1rem;
+  margin: 2rem auto;
+  max-width: 70%;
+}
+
+.singleReviewContainer h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
   padding: 10px;
-  font-size: 1.5em;
 }
 
-p {
-  font-size: 1.25em;
+.singleReviewContainer p {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0;
+  padding: 20px;
 }
 
-h4 {
-  font-size: 1.25em;
+.singleReviewContainer img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid;
+  margin: 20px 0;
+}
+
+.singleReviewContainer .voteButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.singleReviewContainer .voteButtons {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.singleReviewContainer button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.singleReviewContainer .voteButtons {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.singleReviewContainer .voteButtons {
+  color: #333;
+  margin-left: 5px;
+}
+
+button {
+  margin: 10px;
 }

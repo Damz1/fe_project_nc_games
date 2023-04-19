@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import * as api from "../api";
 import CategoryCard from "./CategoryCard";
+import "../css/CategoryList.css";
+
 export default function CategoryList() {
   const [activeCategories, setActiveCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

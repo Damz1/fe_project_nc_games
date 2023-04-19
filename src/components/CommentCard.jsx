@@ -1,3 +1,5 @@
+import "../css/CommentCard.css";
+
 export default function CommentCard({ author, body, created_at, votes }) {
   const date = new Date(created_at).toDateString();
 

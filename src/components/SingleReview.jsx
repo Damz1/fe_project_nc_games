@@ -67,7 +67,11 @@ export default function SingleReview({ username }) {
         <li>Category: {activeReview.category}</li>
         <li>Created on: {activeReview.created_at}</li>
         <li>
-          <img src={activeReview.review_img_url} alt={activeReview.title} />
+          <img
+            src={activeReview.review_img_url}
+            alt={activeReview.title}
+            className="reviewImg"
+          />
         </li>
         <li>
           <h3>review by: {activeReview.owner}</h3>
@@ -76,6 +80,7 @@ export default function SingleReview({ username }) {
       <p className="ReviewBody">{activeReview.review_body}</p>
       <div className="votes">
         <button
+          className="voteButtons"
           type="button"
           onClick={() => {
             handleVotes(1);
@@ -84,6 +89,7 @@ export default function SingleReview({ username }) {
           Like
         </button>
         <button
+          className="voteButtons"
           type="button"
           onClick={() => {
             handleVotes(-1);

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "../css/CategoryCard.css";
 
 export default function CategoryCard({ slug, description }) {
   return (

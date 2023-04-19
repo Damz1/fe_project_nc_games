@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import * as api from "../api";
 import CommentCard from "./CommentCard";
 import CommentForm from "./CommentForm";
+import "../css/CommentList.css";
 
 export default function CommentList({ review_id, username }) {
   const [activeComments, setActiveComments] = useState([]);
