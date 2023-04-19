@@ -1,5 +1,6 @@
 import { useState } from "react";
 import * as api from "../api";
+import "../css/CommentForm.css";
 
 export default function CommentForm({ setActiveComments, review_id }) {
   const [userInput, setUserInput] = useState("");

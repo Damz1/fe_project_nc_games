@@ -3,10 +3,12 @@ import axios from "axios";
 const gamesAPI = axios.create({
   baseURL: "https://nc-games-pro.onrender.com/api",
 });
-export const getReviews = () => {
-  return gamesAPI.get("/reviews").then(({ data: { reviews } }) => {
-    return reviews;
-  });
+export const getReviews = (category) => {
+  return gamesAPI
+    .get("/reviews", { params: { category: category } })
+    .then(({ data }) => {
+      return data.reviews;
+    });
 };
 
 export const getReviewById = (review_id) => {
@@ -36,4 +38,10 @@ export const postComment = (review_id, commentObj) => {
     .then(({ data }) => {
       return data.createdComment[0];
     });
+};
+
+export const getCategories = () => {
+  return gamesAPI.get("/categories").then(({ data }) => {
+    return data.categories;
+  });
 };

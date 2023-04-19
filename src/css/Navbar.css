@@ -1,0 +1,31 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #333333bc;
+  color: white;
+}
+
+.navbar button {
+  font-size: 1.25rem;
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
