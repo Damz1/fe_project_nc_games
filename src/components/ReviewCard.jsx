@@ -6,6 +6,7 @@ export default function ReviewCard({
   category,
   review_img_url,
   title,
+  votes,
   comment_count,
   review_id,
 }) {
@@ -18,6 +19,7 @@ export default function ReviewCard({
         <li>Author: {owner}</li>
         <li>Category: {category}</li>
         <li>Comments: {comment_count}</li>
+        <li>Votes: {votes}</li>
         <li>
           <Link to={`/reviews/${review_id}`}>
             <img src={review_img_url} alt="img review" className="reviewImg" />
