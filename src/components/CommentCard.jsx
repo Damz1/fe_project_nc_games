@@ -17,6 +17,7 @@ export default function CommentCard({
   const logedInUser = "tickle122";
 
   const handleDelete = () => {
+    console.log("isdeleted", isDeleted);
     setIsDeleted(true);
     setActiveComments((currentComments) => {
       const copyComments = [...currentComments];
@@ -32,18 +33,26 @@ export default function CommentCard({
 
   return (
     <main className="CommentCard">
-      <p>Username: {author}</p>
-      <p>
-        Comment Left:
-        {date}
-      </p>
-      <p>{body}</p>
-      <p>Votes: {votes}</p>
-      <br />
-      {logedInUser === author && (
-        <button onClick={handleDelete}>delete comment</button>
+      {isDeleted ? (
+        <p>Comment has been deleted</p>
+      ) : (
+        <>
+          <p>Username: {author}</p>
+          <p>Comment Left: {date}</p>
+          <p>{body}</p>
+          <p>Votes: {votes}</p>
+          <br />
+          {logedInUser === author && (
+            <button
+              onClick={() => {
+                handleDelete();
+              }}
+            >
+              delete comment
+            </button>
+          )}
+        </>
       )}
-      {isDeleted && <p>Comment had been deleted</p>}
     </main>
   );
 }
