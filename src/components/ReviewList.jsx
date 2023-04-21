@@ -8,6 +8,7 @@ import SortedReviews from "./SortedReviews";
 export default function ReviewList() {
   const [reviewList, setReviewList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryQuery = searchParams.get("category");
   const orderQuery = searchParams.get("order");
@@ -15,13 +16,21 @@ export default function ReviewList() {
 
   useEffect(() => {
     setIsLoading(true);
-    api.getReviews(categoryQuery, orderQuery, sortQuery).then((reviews) => {
-      setReviewList(reviews);
-      setIsLoading(false);
-    });
+    api
+      .getReviews(categoryQuery, orderQuery, sortQuery)
+      .then((reviews) => {
+        setReviewList(reviews);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsLoading(false);
+        setIsError(true);
+      });
   }, [categoryQuery, orderQuery, sortQuery]);
 
-  return isLoading ? (
+  return isError ? (
+    <h2 className="isErrorMessage">Something went wrong</h2>
+  ) : isLoading ? (
     <h2 className="loadingReviews">Loading Reviews...</h2>
   ) : (
     <div className="listContainer">

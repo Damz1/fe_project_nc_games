@@ -8,7 +8,6 @@ export default function CommentCard({
   created_at,
   votes,
   comment_id,
-  setActiveComments,
 }) {
   const date = new Date(created_at).toDateString();
   const [isError, setIsError] = useState(false);
