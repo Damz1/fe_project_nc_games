@@ -6,24 +6,24 @@ Welcome to the Board Game Review Site! This site provides users with a variety o
 
 ## Current Features
 
-# Reviews
+### Reviews
 
 Browse a full list of all board game reviews, sorted by date by default.
 Filter and sort the reviews by title, designer, owner, category, or number of votes.
 View an expanded version of a review, including its body and comments, by clicking on the review's box.
 Upvote or downvote a review to indicate your opinion.
 
-# Categories
+### Categories
 
 Browse a list of all categories, along with their descriptions.
 Click on a category name to filter the reviews page and display only the reviews associated with that category.
 
-# Comments
+### Comments
 
 Leave a comment on a review as a logged-in user (currently, hardcoded).
 Delete your own comments from a review.
 
-## Getting Started
+### Getting Started
 
 **To run the Board Game Review Site locally, please ensure that you have Node v19.7.0 installed. then, follow these steps:**
 
