@@ -77,3 +77,13 @@
 button {
   margin: 10px;
 }
+
+.loadingReviews {
+  font-size: 32px;
+  margin: 20px;
+}
+
+.isErrorMessage {
+  font-size: 32px;
+  margin: 20px;
+}

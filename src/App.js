@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import SingleReview from "./components/SingleReview";
 import Navbar from "./components/Navbar";
 import CategoryList from "./components/CategoryList";
-
+import Error from "./components/Error";
 import "./css/App.css";
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
         <Route path="/reviews/:review_id" element={<SingleReview />} />
         <Route path="/reviews" element={<ReviewList />} />
         <Route path="/categories" element={<CategoryList />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
   );

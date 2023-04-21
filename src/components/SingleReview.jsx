@@ -57,9 +57,9 @@ export default function SingleReview({ username }) {
   }, [review_id]);
 
   return isError ? (
-    <p>Something went wrong</p>
+    <h2 className="isErrorMessage">Something went wrong</h2>
   ) : isLoading ? (
-    <p>Loading Review...</p>
+    <h2 className="loadingReviews">Loading Reviews...</h2>
   ) : (
     <main className="singleReviewContainer">
       <h2>{activeReview.title}</h2>
