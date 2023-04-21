@@ -11,21 +11,19 @@ export default function ReviewCard({
   review_id,
 }) {
   return (
-    <div className="reviewCardContainer">
-      <Link to={`/reviews/${review_id}`}>
+    <Link to={`/reviews/${review_id}`}>
+      <div className="reviewCardContainer">
         <h3>{title}</h3>
-      </Link>
-      <ul className="reviewCard">
-        <li>Author: {owner}</li>
-        <li>Category: {category}</li>
-        <li>Comments: {comment_count}</li>
-        <li>Votes: {votes}</li>
-        <li>
-          <Link to={`/reviews/${review_id}`}>
+        <ul className="reviewCard">
+          <li>Author: {owner}</li>
+          <li>Category: {category}</li>
+          <li>Comments: {comment_count}</li>
+          <li>Votes: {votes}</li>
+          <li>
             <img src={review_img_url} alt="img review" className="reviewImg" />
-          </Link>
-        </li>
-      </ul>
-    </div>
+          </li>
+        </ul>
+      </div>
+    </Link>
   );
 }
