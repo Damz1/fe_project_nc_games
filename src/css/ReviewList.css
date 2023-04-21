@@ -2,6 +2,11 @@ ul {
   list-style: none;
 }
 
+.loadingReviews {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
 .list {
   display: grid;
   grid-gap: 20px;

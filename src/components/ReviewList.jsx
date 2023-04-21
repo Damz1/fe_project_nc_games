@@ -22,7 +22,7 @@ export default function ReviewList() {
   }, [categoryQuery, orderQuery, sortQuery]);
 
   return isLoading ? (
-    <p className="loading">Loading...</p>
+    <h2 className="loadingReviews">Loading Reviews...</h2>
   ) : (
     <div className="listContainer">
       <h2 className="listHeader">Reviews List</h2>
