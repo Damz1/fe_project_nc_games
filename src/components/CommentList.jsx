@@ -41,6 +41,7 @@ export default function CommentList({ review_id, username }) {
               <li key={comment.comment_id}>
                 <CommentCard
                   {...comment}
+                  activeComments={activeComments}
                   setActiveComments={setActiveComments}
                 />
               </li>

@@ -49,6 +49,5 @@ export const getCategories = () => {
 };
 
 export const deleteComment = (comment_id) => {
-  console.log(comment_id);
   return gamesAPI.delete(`/comments/${comment_id}`);
 };

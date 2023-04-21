@@ -17,42 +17,42 @@ export default function CommentCard({
   const logedInUser = "tickle122";
 
   const handleDelete = () => {
-    console.log("isdeleted", isDeleted);
     setIsDeleted(true);
-    setActiveComments((currentComments) => {
-      const copyComments = [...currentComments];
-      return copyComments.filter((comment) => {
-        return comment.comment_id !== comment_id;
-      });
-    });
-    console.log("isdeleted", isDeleted);
     api.deleteComment(comment_id).catch((error) => {
       setIsError(true);
     });
   };
 
   return (
-    <main className="CommentCard">
-      {isDeleted ? (
-        <p>Comment has been deleted</p>
+    <div>
+      <main className="CommentCard">
+        <p>Username: {author}</p>
+        <p>Comment Left: {date}</p>
+        <p>{body}</p>
+        <p>Votes: {votes}</p>
+        <br />
+        {logedInUser === author && (
+          <button
+            onClick={() => {
+              handleDelete();
+            }}
+          >
+            delete comment
+          </button>
+        )}
+      </main>
+      {isError ? (
+        <p>an Error has occure, try again later</p>
       ) : (
-        <>
-          <p>Username: {author}</p>
-          <p>Comment Left: {date}</p>
-          <p>{body}</p>
-          <p>Votes: {votes}</p>
-          <br />
-          {logedInUser === author && (
-            <button
-              onClick={() => {
-                handleDelete();
-              }}
-            >
-              delete comment
+        isDeleted && (
+          <div>
+            <p>This Comment Has ben Deleted</p>{" "}
+            <button onClick={() => window.location.reload()}>
+              Reload Page
             </button>
-          )}
-        </>
+          </div>
+        )
       )}
-    </main>
+    </div>
   );
 }
