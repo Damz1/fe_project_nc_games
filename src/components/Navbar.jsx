@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../css/Navbar.css";
 
-export default function Navbar({ logedInUser }) {
+export default function Navbar({ loggedInUser }) {
   return (
     <div className="navbar">
       <Link to="/reviews">

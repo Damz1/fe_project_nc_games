@@ -1,6 +1,6 @@
 import "../css/CommentCard.css";
 import * as api from "../api";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function CommentCard({
   author,
@@ -15,6 +15,19 @@ export default function CommentCard({
   const [isDeleted, setIsDeleted] = useState(false);
 
   const logedInUser = "tickle122";
+
+  useEffect(() => {
+    let timerId;
+
+    if (isDeleted) {
+      timerId = setTimeout(() => {
+        window.location.reload();
+      }, 2500);
+    }
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [isDeleted]);
 
   const handleDelete = () => {
     setIsDeleted(true);
@@ -46,10 +59,7 @@ export default function CommentCard({
       ) : (
         isDeleted && (
           <div>
-            <p>This Comment Has ben Deleted</p>{" "}
-            <button onClick={() => window.location.reload()}>
-              Reload Page
-            </button>
+            <p>This Comment Has ben Deleted, The Page Will Now Reload</p>
           </div>
         )
       )}
